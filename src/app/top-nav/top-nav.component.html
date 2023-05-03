@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="home"><mat-icon matTooltip="Home" [matTooltipPosition]="position.value!" aria-hidden="false" fontIcon="home"></mat-icon><span class="leftNav">Home</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="about"><mat-icon matTooltip="About" [matTooltipPosition]="position.value!" aria-hidden="false" fontIcon="info"></mat-icon><span class="leftNav">About</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="contact"><mat-icon matTooltip="contact" [matTooltipPosition]="position.value!" aria-hidden="false" fontIcon="contact_page"></mat-icon><span class="leftNav">Contact</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="signin"><mat-icon matTooltip="signin" [matTooltipPosition]="position.value!" aria-hidden="false" fontIcon="login"></mat-icon><span class="leftNav">Sign In</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="signup"><mat-icon matTooltip="sig" [matTooltipPosition]="position.value!" aria-hidden="false" fontIcon="account_circle"></mat-icon><span class="leftNav">Sign Up</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{title}}</span>
+      <span class="example-spacer"></span>
+      <a matTooltip="Home" [matTooltipPosition]="position.value!" aria-hidden="false" mat-button [routerLinkActive]="['active']" routerLink="home">Home <mat-icon aria-hidden="false" fontIcon="home"></mat-icon></a>
+      <a matTooltip="about" [matTooltipPosition]="position.value!" mat-button [routerLinkActive]="['active']" routerLink="about">About <mat-icon aria-hidden="false" fontIcon="info"></mat-icon></a>
+      <a matTooltip="contact" [matTooltipPosition]="position.value!" mat-button [routerLinkActive]="['active']" routerLink="contact">Contact <mat-icon aria-hidden="false" fontIcon="contact_page"></mat-icon></a>
+      <a matTooltip="signin" [matTooltipPosition]="position.value!" mat-button [routerLinkActive]="['active']" routerLink="signin">Sign In <mat-icon aria-hidden="false" fontIcon="login"></mat-icon></a>
+      <a matTooltip="signup" [matTooltipPosition]="position.value!" mat-button [routerLinkActive]="['active']" routerLink="signup">Sign Up <mat-icon aria-hidden="false" fontIcon="account_circle"></mat-icon></a>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

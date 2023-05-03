@@ -1,0 +1,46 @@
+    <div class="container userSignin">
+        <div class="col-md-6 offset-md-3">
+            <div class="mt-2 mb-2 mr-1 ml-1">
+                <div class="alert alert-primary rounded-0" role="alert">
+                    Please fill the required fields!!
+                </div>
+                <div class="alert alert-success rounded-0" role="alert">
+                    <span>Success!</span>
+                </div>
+                <div class="alert alert-danger rounded-0" role="alert">
+                    <span>Danger</span>
+                </div>
+                <div class="alert alert-warning rounded-0" role="alert">
+                    <span>Warning</span>
+                </div>
+            </div>
+            <form>
+                <div class="card border border-secondary m-2 rounded-0">
+                    <p class="card-header border-0 text-dark text-center">{{title}}</p>
+                    <div class="card-body rounded-0">
+                        <h5 class="card-title text-danger"><sup>*</sup>Please enter valid credentials</h5>
+                        <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="email" placeholder="email@example.com">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control form-control-sm rounded-0" id="inputPassword">
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-sm btn-outline-primary me-md-2 rounded-0" type="submit">Submit</button>
+                            <button class="btn btn-sm btn-outline-secondary rounded-0" type="reset">Reset</button>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 text-center">
+                        <p>Don't have account? Click here</p>
+                        <button matTooltip="signup" [matTooltipPosition]="position.value!" mat-raised-button color="warn" routerLink="/signup" type="button">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

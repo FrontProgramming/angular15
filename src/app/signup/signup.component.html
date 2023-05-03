@@ -1,0 +1,128 @@
+<div class="container userSignin">
+    <div class="col-md-6 offset-md-3">
+        <div class="mt-2 mb-2 mr-1 ml-1" class="userPromt">
+            <div class="alert alert-primary rounded-0" role="alert">
+                Please fill the required fields!!
+            </div>
+            <div class="alert alert-success rounded-0" role="alert">
+                <span>Success!</span>
+            </div>
+            <div class="alert alert-danger rounded-0" role="alert">
+                <span>Danger</span>
+            </div>
+            <div class="alert alert-warning rounded-0" role="alert">
+                <span>Warning</span>
+            </div>
+        </div>
+        <form>
+            <div class="card border border-secondary m-2 rounded-0">
+                <h1 class="card-header border-0 text-dark text-center">{{formName}}</h1>
+                <div class="card-body rounded-0">
+                    <h5 class="card-title text-danger"><sup>*</sup>Please enter valid credentials</h5>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstname" class="form-label"><span class="text-danger"><sup>*</sup></span>Firstname</label>
+                            <input type="text" class="form-control form-control-sm rounded-0 " id="firstname" placeholder="John">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastname" class="form-label"><span class="text-danger"><sup>*</sup></span>Lastname</label>
+                            <input type="text" class="form-control form-control-sm rounded-0" id="lastname" placeholder="Doe">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-2 mt-4">
+                            <label for="lastname" class="form-label"><span class="text-danger"><sup>*</sup></span>Gender</label>
+                        </div>
+                        <div class="col-sm-10 mt-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="male" id="male">
+                                <label class="form-check-label" for="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="female" id="female">
+                                <label class="form-check-label" for="female">
+                                    Female
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="nodisclose" id="nodisclose">
+                                <label class="form-check-label" for="nodisclose">
+                                    I don't want to disclose
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="email" class="form-label"><span class="text-danger"><sup>*</sup></span>Email Address</label>
+                            <input type="text" class="form-control form-control-sm rounded-0" id="email" placeholder="email@example.com">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="mobile" class="form-label"><span class="text-danger"><sup>*</sup></span>Mobile</label>
+                            <input type="number" class="form-control form-control-sm rounded-0" id="mobile" placeholder="987-234-0987">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Password</label>
+                            <input type="password" class="form-control form-control-sm rounded-0" id="inputPassword" placeholder="**********">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="username" class="form-label"><span class="text-danger"><sup>*</sup></span>Username</label>
+                            <input type="text" class="form-control form-control-sm rounded-0" id="username" placeholder="johndoe">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="address" class="form-label"><span class="text-danger"><sup>*</sup></span>Address</label>
+                            <input type="text" class="form-control form-control-sm rounded-0 " id="address" placeholder="1600 Amphitheatre Parkway Mountain">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Country</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>--</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>State</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>--</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="city" class="form-label"><span class="text-danger"><sup>*</sup></span>City</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>--</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="pincode" class="form-label"><span class="text-danger"><sup>*</sup></span>Pincode</label>
+                            <input type="text" class="form-control form-control-sm rounded-0 " id="fipincodestname" placeholder="123-456">
+                            <span class="text-danger fw-lighter errorText" id=""></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer border-0">
+                    <div class="d-flex">
+                        <button class="btn btn-sm btn-primary me-auto" type="submit">Submit</button>
+                        <button class="btn btn-sm btn-dark" type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
