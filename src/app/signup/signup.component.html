@@ -81,31 +81,24 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Country</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>--</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select form-select-sm" (change)="onChangeCountry($event.target.value)">
+                                <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
                             </select>
                             <span class="text-danger fw-lighter errorText" id=""></span>
                         </div>
                         <div class="col-sm-4">
                             <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>State</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>--</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select form-select-sm" (change)="onChangeState($event.target.value)">
+                                <option *ngIf="stateInfo == ''" value="-1">--</option>
+                                <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
                             </select>
                             <span class="text-danger fw-lighter errorText" id=""></span>
                         </div>
                         <div class="col-sm-4">
                             <label for="city" class="form-label"><span class="text-danger"><sup>*</sup></span>City</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>--</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option *ngIf="cityInfo == ''" value="-1">--Select CIty--</option>
+                                <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
                             </select>
                             <span class="text-danger fw-lighter errorText" id=""></span>
                         </div>

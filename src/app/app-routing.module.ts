@@ -15,8 +15,8 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent, title: 'Signin' },
   { path: 'signup', component: SignupComponent, title: 'Signup' },
   { path: 'breadcrumb', component: BreadcrumbComponent },
-  // { path: 'pagenotfound', component: PagenotfoundComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'pagenotfound', component: PagenotfoundComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'pagenotfound' },
 ];
 
 @NgModule({

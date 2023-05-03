@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TooltipPosition } from '@angular/material/tooltip';
 
@@ -8,7 +8,7 @@ import { TooltipPosition } from '@angular/material/tooltip';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-  title: string = 'Angular';
+  title: string = 'Angular ' + VERSION.major;
   positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   position = new FormControl(this.positionOptions[0]);
 }

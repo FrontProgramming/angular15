@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatOption, MatOptionModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { CountriesService } from './ccs_service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     MatOptionModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [CountriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
