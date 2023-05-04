@@ -32,13 +32,13 @@ export class SignupComponent implements OnInit {
       )
   }
 
-  onChangeCountry(countryValue: string | number) {
+  onChangeCountry(countryValue: string) {
     this.stateInfo = this.countryInfo[countryValue].States;
     this.cityInfo = this.stateInfo[0].Cities;
     console.log(this.cityInfo);
   }
 
-  onChangeState(stateValue: string | number) {
+  onChangeState(stateValue: string ) {
     this.cityInfo = this.stateInfo[stateValue].Cities;
     //console.log(this.cityInfo);
   }
