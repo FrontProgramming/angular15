@@ -7,7 +7,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-
+import { RegistrationComponent } from "./material-forms/registration/registration.component";
 const routes: Routes = [
   { path: 'home', component: HomeComponent, title: 'Home' },
   { path: 'about', component: AboutComponent, title: 'About' },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent, title: 'Signup' },
   { path: 'breadcrumb', component: BreadcrumbComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'pagenotfound' },
 ];
 

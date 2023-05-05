@@ -25,10 +25,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatOption, MatOptionModule } from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { CountriesService } from './ccs_service';
+import { CCS } from './ccs_service';
+import { RegistrationComponent } from './material-forms/registration/registration.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +47,7 @@ import { CountriesService } from './ccs_service';
     TopNavComponent,
     UserComponent,
     BreadcrumbComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +65,13 @@ import { CountriesService } from './ccs_service';
     HttpClientModule,
     ReactiveFormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatDatepickerModule
   ],
-  providers: [CountriesService],
+  providers: [CCS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
