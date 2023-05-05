@@ -34,6 +34,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule
   ],
   providers: [CCS],
   bootstrap: [AppComponent]
