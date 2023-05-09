@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CCS } from '../ccs_service';
+import {CCS} from "../ccs_service";
+// import { of } from 'rxjs';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,26 +21,26 @@ export class SignupComponent implements OnInit {
   }
 
 
-  getCountries() {
+  getCountries(){
     this.country.allCountries().
-      subscribe(
-        data2 => {
-          this.countryInfo = data2.Countries;
-          //console.log('Data:', this.countryInfo);
-        },
-        err => console.log(err),
-        () => console.log('complete')
-      )
+    subscribe(
+      data2 => {
+        this.countryInfo=data2.Countries;
+        //console.log('Data:', this.countryInfo);
+      },
+      err => console.log(err),
+      () => console.log('complete')
+    )
   }
 
-  onChangeCountry(countryValue: string) {
-    this.stateInfo = this.countryInfo[countryValue].States;
-    this.cityInfo = this.stateInfo[0].Cities;
-    console.log(this.cityInfo);
+  onChangeCountry(countryValue:any) {
+    this.stateInfo=this.countryInfo[countryValue].States;
+    this.cityInfo=this.stateInfo[0].Cities;
+    // console.log(this.cityInfo);
   }
 
-  onChangeState(stateValue: string ) {
-    this.cityInfo = this.stateInfo[stateValue].Cities;
+  onChangeState(stateValue:any) {
+    this.cityInfo=this.stateInfo[stateValue].Cities;
     //console.log(this.cityInfo);
   }
 

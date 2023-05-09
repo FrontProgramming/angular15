@@ -23,12 +23,12 @@
                         <div class="col-sm-6">
                             <label for="firstname" class="form-label"><span class="text-danger"><sup>*</sup></span>Firstname</label>
                             <input type="text" class="form-control form-control-sm rounded-0 " id="firstname" placeholder="John">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
                         <div class="col-sm-6">
                             <label for="lastname" class="form-label"><span class="text-danger"><sup>*</sup></span>Lastname</label>
                             <input type="text" class="form-control form-control-sm rounded-0" id="lastname" placeholder="Doe">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
                         <div class="col-sm-2 mt-4">
                             <label for="lastname" class="form-label"><span class="text-danger"><sup>*</sup></span>Gender</label>
@@ -56,55 +56,58 @@
                         <div class="col-sm-6">
                             <label for="email" class="form-label"><span class="text-danger"><sup>*</sup></span>Email Address</label>
                             <input type="text" class="form-control form-control-sm rounded-0" id="email" placeholder="email@example.com">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
                         <div class="col-sm-6">
                             <label for="mobile" class="form-label"><span class="text-danger"><sup>*</sup></span>Mobile</label>
                             <input type="number" class="form-control form-control-sm rounded-0" id="mobile" placeholder="987-234-0987">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
                         <div class="col-sm-6">
                             <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Password</label>
                             <input type="password" class="form-control form-control-sm rounded-0" id="inputPassword" placeholder="**********">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
                         <div class="col-sm-6">
                             <label for="username" class="form-label"><span class="text-danger"><sup>*</sup></span>Username</label>
                             <input type="text" class="form-control form-control-sm rounded-0" id="username" placeholder="johndoe">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
 
                         <div class="col-sm-12">
                             <label for="address" class="form-label"><span class="text-danger"><sup>*</sup></span>Address</label>
                             <input type="text" class="form-control form-control-sm rounded-0 " id="address" placeholder="1600 Amphitheatre Parkway Mountain">
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                            <span class="text-danger fw-lighter errorText"></span>
                         </div>
-                        <!-- <div class="col-sm-4">
-                            <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Country</label>
-                            <select class="form-select form-select-sm" (change)="onChangeCountry($event.target.value)">
-                                <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label>Select Country</label>
+                            <select class="form-control" (change)="onChangeCountry($any($event.target).value)">
+                              <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
                             </select>
-                            <span class="text-danger fw-lighter errorText" id=""></span>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label>Select State</label>
+                            <select (change)="onChangeState($any($event.target).value)" class="form-control">
+                              <option *ngIf="stateInfo == ''" value="-1">--Select State--</option>
+                              <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label>Select City</label>
+                            <select class="form-control">
+                              <option *ngIf="cityInfo == ''" value="-1">--Select CIty--</option>
+                              <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
+                            </select>
+                          </div>
                         </div>
                         <div class="col-sm-4">
-                            <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>State</label>
-                            <select class="form-select form-select-sm" (change)="onChangeState($event.target.value)">
-                                <option *ngIf="stateInfo == ''" value="-1">--</option>
-                                <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
-                            </select>
-                            <span class="text-danger fw-lighter errorText" id=""></span>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="city" class="form-label"><span class="text-danger"><sup>*</sup></span>City</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option *ngIf="cityInfo == ''" value="-1">--Select CIty--</option>
-                                <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
-                            </select>
-                            <span class="text-danger fw-lighter errorText" id=""></span>
-                        </div> -->
-                        <div class="col-sm-4">
-                            <label for="pincode" class="form-label"><span class="text-danger"><sup>*</sup></span>Pincode</label>
-                            <input type="text" class="form-control form-control-sm rounded-0 " id="fipincodestname" placeholder="123-456">
+                            <label class="form-label"><span class="text-danger"><sup>*</sup></span>Pincode</label>
+                            <input type="text" class="form-control form-control-sm rounded-0 " placeholder="123-456">
                             <span class="text-danger fw-lighter errorText" id=""></span>
                         </div>
                     </div>

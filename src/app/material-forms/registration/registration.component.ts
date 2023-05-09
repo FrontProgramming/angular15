@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { CCS } from "../../ccs_service";
 
 @Component({
   selector: 'app-registration',
@@ -16,21 +8,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
+  stateInfo: any  = [];
+  countryInfo: any = [];
+  cityInfo: any = [];
   userForm!: FormGroup;
-  
-  constructor(public fb: FormBuilder) { }
+
+  constructor(
+    public fb: FormBuilder,
+    private country: CCS)
+  { }
 
   ngOnInit(): void {
-    this.reactiveForm();
+    // this.reactiveForm();
+    this.getCountries();
   }
-  
-  submitForm() {
-    throw new Error('Method not implemented.');
-  }
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  matcher = new MyErrorStateMatcher();
+  // matcher = new MyErrorStateMatcher();
 
   reactiveForm() {
     this.userForm = this.fb.group({
@@ -38,7 +31,7 @@ export class RegistrationComponent implements OnInit {
       lastName: ['', [Validators.required]],
       gender: ['Male', [Validators.required]],
       dob: ['', [Validators.required]],
-      email: ['', [Validators.required,  Validators.pattern ("^[a-z0-9")]],
+      email: ['', [Validators.required]]  ,
       phone: ['', [Validators.required]],
       address: ['', [Validators.required]],
       country: ['', [Validators.required]],
@@ -46,5 +39,30 @@ export class RegistrationComponent implements OnInit {
       city: ['', [Validators.required]]
     })
   }
+  submitForm() {
+    console.log(this.userForm.value);
+  }
 
+  getCountries(){
+    this.country.allCountries().
+    subscribe(
+      data2 => {
+        this.countryInfo=data2.Countries;
+        //console.log('Data:', this.countryInfo);
+      },
+      err => console.log(err),
+      () => console.log('complete')
+    )
+  }
+
+  onChangeCountry(countryValue:any) {
+    this.stateInfo=this.countryInfo[countryValue].States;
+    this.cityInfo=this.stateInfo[0].Cities;
+    // console.log(this.cityInfo);
+  }
+
+  onChangeState(stateValue:any) {
+    this.cityInfo=this.stateInfo[stateValue].Cities;
+    //console.log(this.cityInfo);
+  }
 }
