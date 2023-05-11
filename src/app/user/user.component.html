@@ -1,1 +1,22 @@
-<p>user works!</p>
+
+<app-user [formData]="userForm.value"></app-user>
+<div class="container">
+    <table class="table table-bordered border-primary mt-2 mb-2">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{firstname}}</td>
+                <td>{{lastname}}</td>
+                <td>{{email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

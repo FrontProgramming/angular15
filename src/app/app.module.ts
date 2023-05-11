@@ -36,6 +36,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { RegUserDataComponent } from './reg-user-data/reg-user-data.component';
+import { MatLoginComponent } from './material-forms/mat-login/mat-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,9 @@ import { MatCardModule } from '@angular/material/card';
     UserComponent,
     BreadcrumbComponent,
     RegistrationComponent,
+    PaginatorComponent,
+    RegUserDataComponent,
+    MatLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +80,8 @@ import { MatCardModule } from '@angular/material/card';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [CCS],
   bootstrap: [AppComponent]
