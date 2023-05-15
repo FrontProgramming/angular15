@@ -72,12 +72,12 @@
             </div>
             <div class="col-sm-6">
               <label for="mobile" class="form-label"><span class="text-danger"><sup>*</sup></span>Mobile</label>
-              <input type="number" class="form-control form-control-sm rounded-0" name="mobile" formControlName="mobile"  id="mobile" placeholder="987-234-0987">
+              <input type="number" class="form-control form-control-sm rounded-0" name="mobile" id="mobile" placeholder="987-234-0987">
               <span class="text-danger fw-lighter errorText"></span>
             </div>
             <div class="col-sm-6">
               <label for="inputPassword" class="form-label"><span class="text-danger"><sup>*</sup></span>Password</label>
-              <input type="password" class="form-control form-control-sm rounded-0" name="password" formControlName="password"  id="inputPassword" placeholder="**********">
+              <input type="password" class="form-control form-control-sm rounded-0" name="password" id="inputPassword" placeholder="**********">
               <span class="text-danger fw-lighter errorText"></span>
             </div>
             
@@ -89,7 +89,7 @@
 
             <div class="col-sm-12">
               <label for="address" class="form-label"><span class="text-danger"><sup>*</sup></span>Address</label>
-              <input type="text" class="form-control form-control-sm rounded-0" name="address" formControlName="address"  id="address" placeholder="1600 Amphitheatre Parkway Mountain">
+              <input type="text" class="form-control form-control-sm rounded-0" name="address" id="address" placeholder="1600 Amphitheatre Parkway Mountain">
               <span class="text-danger fw-lighter errorText"></span>
             </div>
 
@@ -138,3 +138,4 @@
     </form>
   </div>
 </div>
+<app-user [formData]="userForm.value"></app-user>

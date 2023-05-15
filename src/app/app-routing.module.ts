@@ -11,6 +11,7 @@ import { RegistrationComponent } from "./material-forms/registration/registratio
 import { PaginatorComponent } from "./paginator/paginator.component";
 import { UserComponent } from './user/user.component';
 import { MatLoginComponent } from './material-forms/mat-login/mat-login.component';
+import { PaginationComponent } from './pagination/pagination.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'paginator', component: PaginatorComponent },
   { path: 'user', component: UserComponent },
   { path: 'mat-login', component: MatLoginComponent },
+  { path: 'pagination', component: PaginationComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,9 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { RegUserDataComponent } from './reg-user-data/reg-user-data.component';
 import { MatLoginComponent } from './material-forms/mat-login/mat-login.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +60,7 @@ import { MatLoginComponent } from './material-forms/mat-login/mat-login.componen
     PaginatorComponent,
     RegUserDataComponent,
     MatLoginComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,9 +85,12 @@ import { MatLoginComponent } from './material-forms/mat-login/mat-login.componen
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [CCS],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

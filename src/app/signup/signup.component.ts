@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const formData = this.userForm.value;
+    const userForm = this.userForm.value;
     // pass the form data to the child component
   }
 }
