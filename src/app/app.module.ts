@@ -43,6 +43,8 @@ import { MatLoginComponent } from './material-forms/mat-login/mat-login.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,8 @@ import { MatSortModule } from '@angular/material/sort';
     RegUserDataComponent,
     MatLoginComponent,
     PaginationComponent,
+    ParentComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,22 @@
-
 <div class="container">
-    <table class="table table-bordered border-primary mt-2 mb-2">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Firstname</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{{firstname}}</td>
-                <td>{{lastname}}</td>
-                <td>{{email}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered border-primary mt-2 mb-2">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row" class="text-center"></td>
+                    <td>{{receivedFormData.firstname}}</td>
+                    <td>{{receivedFormData.lastname}}</td>
+                    <td>{{receivedFormData.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

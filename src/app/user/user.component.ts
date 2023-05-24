@@ -1,18 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 // import { SignupComponent } from '../signup/signup.component';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  @Input() formData: any;
+  // receivedFormData: any;
+
+  @Input() receivedFormData: any;
+  
   firstname: any;
   lastname: any;
   email: any;
-userForm: any;
 
   // @Output() getResponse = new EventEmitter;
 
-  // constructor() { }
+  constructor() { }
+
+  receiveFormData(formData: any): void {
+    this.receivedFormData = formData;
+    console.log(this.receivedFormData)
+  }
 }

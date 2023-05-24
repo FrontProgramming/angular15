@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {  } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CCS } from '../ccs_service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,45 +9,46 @@ import { CCS } from '../ccs_service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  title = "User Registration Form";
+  title = "registration form";
   userForm!: FormGroup;
-  @Output() formSubmit = new EventEmitter<FormGroup>();
-  firstname!: string;
+
+  @Output() formdata = new EventEmitter();
+
   stateInfo: any = [];
   countryInfo: any = [];
   cityInfo: any = [];
+  formData: any;
 
-  sendToUser!: string;
-  message: any;
-
-  constructor(private country: CCS, private fb: FormBuilder) { }
+  constructor(
+    private country: CCS,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.getCountries();
     this.userForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      email: [''],
+      // firstname: ['', Validators.required],
+      // lastname: ['', Validators.required],
+      // email: ['', Validators.required],
+      firstname: new FormControl(),
+      lastname: new FormControl(),
+      email: new FormControl(),
     });
-  }
-
-  getResponse($event: any) {
-    this.message = $event;
-  }
-  submit() {
-    this.sendToUser = this.firstname;
+    // this.userForm;
   }
 
   getCountries() {
     this.country.allCountries().
-      subscribe(
-        data2 => {
-          this.countryInfo = data2.Countries;
-          //console.log('Data:', this.countryInfo);
-        },
-        err => console.log(err),
-        () => console.log('complete')
-      )
+   subscribe(
+    (data2: { Countries: any; }) => {
+        this.countryInfo = data2.Countries;
+        //console.log('Data:', this.countryInfo);
+      },
+      (err: any) => console.log(err),
+      () => console.log('complete')
+    )
   }
 
   onChangeCountry(countryValue: any) {
@@ -62,7 +63,12 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const userForm = this.userForm.value;
-    // pass the form data to the child component
+    if (this.userForm.valid) {
+      this.formData.emit(this.userForm.value);
+      this.router.navigateByUrl('/user');
+      this.userForm.reset();
+    }  
+    // passing data form parent to child component
   }
 }
+
