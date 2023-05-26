@@ -1,48 +1,56 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CCS } from '../ccs_service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CCS} from '../ccs_service';
+
+// import {ActivatedRoute, Router} from '@angular/router';
+
+export interface sex {
+  value: string;
+}
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
   title = "registration form";
   userForm!: FormGroup;
-
-  @Output() formdata = new EventEmitter();
-
+  // @Output() formdata = new EventEmitter();
   stateInfo: any = [];
   countryInfo: any = [];
   cityInfo: any = [];
   formData: any;
+  gender: any = [
+    {value: 'Male', viewValue: 'Male'},
+    {value: 'Female', viewValue: 'Female'}
+  ];
 
   constructor(
     private country: CCS,
-    private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getCountries();
-    this.userForm = this.fb.group({
-      // firstname: ['', Validators.required],
-      // lastname: ['', Validators.required],
-      // email: ['', Validators.required],
-      firstname: new FormControl(),
-      lastname: new FormControl(),
-      email: new FormControl(),
+    this.userForm = new FormGroup({
+      firstname: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      gender: new FormControl('male', Validators.required),
+      mobile: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      country: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
     });
     // this.userForm;
   }
 
   getCountries() {
-    this.country.allCountries().
-   subscribe(
-    (data2: { Countries: any; }) => {
+    this.country.allCountries().subscribe(
+      (data2: { Countries: any; }) => {
         this.countryInfo = data2.Countries;
         //console.log('Data:', this.countryInfo);
       },
@@ -63,12 +71,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.userForm.valid) {
-      this.formData.emit(this.userForm.value);
-      this.router.navigateByUrl('/user');
-      this.userForm.reset();
-    }  
-    // passing data form parent to child component
+    console.log(JSON.stringify(this.userForm.value));
   }
 }
 

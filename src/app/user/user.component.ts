@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +9,7 @@ export class UserComponent {
 
   @Input() receivedFormData: any;
 
-  constructor() { }
+  constructor( ) { }
 
   receiveFormData(formData: any): void {
     this.receivedFormData = formData;
