@@ -3,9 +3,10 @@
   <div class="border col-md-6 offset-md-3 p-3">
    <h2 class="text-center">Parent: <span class="fw-lighter text-success">child is inside the parent component</span></h2>
    <!-- using property binding and event binding [] -->
-   <ul>
-    <li *ngFor="let user of data">{{user}}</li>
-   </ul>
+   <!-- data is an array for demo content list and user add the data with in the list -->
+   <ol class="list-group list-group-numbered">
+    <li class="list-group-item border-0" *ngFor="let user of data">{{user}}</li>
+   </ol>
    <app-child [parent]="currentData" (newcurrentDataEvent)="addNewContent($event)"></app-child> 
   </div>
  </div>
