@@ -1,29 +1,11 @@
-<div class="container">
+<div class="container mt-3">
  <div class="row">
-  <div class="col-md-6 offset-md-3">
-   <form [formGroup]="parentForm">
-    <div class="card border m-2 rounded-0 shadow-sm mb-5 bg-body rounded">
-     <h1 class="card-header text-center bg-transparent mb-0">parent</h1>
-     <div class="card-body rounded-0">
-      <h5 class="card-title text-danger"><sup>*</sup>Please enter valid credentials</h5>
-      <div class="row g-3">
-       <div class="col-sm-12">
-        <label for="email" class="col-sm-2 col-form-label">Email</label>
-        <input type="text" class="form-control form-control-sm rounded-0" id="email" placeholder="email@example.com">
-       </div>
-
-       <div class="col-sm-12">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-        <input type="password" class="form-control form-control-sm rounded-0" id="inputPassword" placeholder="*******">
-       </div>
-
-       <div class="d-grid gap-2 d-flex justify-content-center">
-        <button class="btn btn-sm btn-warning rounded-4 col-md-4" (click)="onReset()" type="reset">Reset</button>
-        <button class="btn btn-sm btn-primary me-md-2 rounded-4 col-md-4" type="submit">Submit</button>
-       </div>
-      </div>
-     </div>
-    </div>
-   </form>
+  <div class="border col-md-6 offset-md-3 p-3">
+   <h2 class="text-center">Parent: <span class="fw-lighter text-success">child is inside the parent component</span></h2>
+   <!-- using property binding and event binding [] -->
+   <ul>
+    <li *ngFor="let user of data">{{user}}</li>
+   </ul>
+   <app-child [parent]="currentData" (newcurrentDataEvent)="addNewContent($event)"></app-child> 
   </div>
  </div>
