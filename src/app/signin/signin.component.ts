@@ -8,7 +8,7 @@ import { TooltipPosition } from '@angular/material/tooltip';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  title = "login"
+  title = "Login"
   // positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   // position = new FormControl(this.positionOptions[0]);
   constructor() { }

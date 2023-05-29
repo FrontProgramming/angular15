@@ -45,6 +45,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { ChildComponent } from './child/child.component';
     PaginationComponent,
     ParentComponent,
     ChildComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

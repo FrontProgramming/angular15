@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CCS} from '../ccs_service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CCS } from '../ccs_service';
 
 // import {ActivatedRoute, Router} from '@angular/router';
 
@@ -15,22 +15,19 @@ export interface sex {
 })
 
 export class SignupComponent implements OnInit {
-  title = "registration form";
+  title = "Registration Form";
   userForm!: FormGroup;
-  // @Output() formdata = new EventEmitter();
   stateInfo: any = [];
   countryInfo: any = [];
   cityInfo: any = [];
-  formData: any;
   gender: any = [
-    {value: 'Male', viewValue: 'Male'},
-    {value: 'Female', viewValue: 'Female'}
+    { value: 'Male', viewValue: 'Male' },
+    { value: 'Female', viewValue: 'Female' }
   ];
 
-  constructor(
-    private country: CCS,
-  ) {
-  }
+  // const countries = of(this.countryInfo);
+
+  constructor(private country: CCS,) { }
 
   ngOnInit(): void {
     this.getCountries();
@@ -38,25 +35,19 @@ export class SignupComponent implements OnInit {
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      gender: new FormControl('male', Validators.required),
+      gender: new FormControl('', Validators.required),
       mobile: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
       state: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
     });
-    // this.userForm;
   }
 
   getCountries() {
-    this.country.allCountries().subscribe(
-      (data2: { Countries: any; }) => {
-        this.countryInfo = data2.Countries;
-        //console.log('Data:', this.countryInfo);
-      },
-      (err: any) => console.log(err),
-      () => console.log('complete')
-    )
+    this.country.allCountries().subscribe((data2: { Countries: any; }) => {
+      this.countryInfo = data2.Countries;
+    }, (err: any) => console.log(err), () => console.log('complete'))
   }
 
   onChangeCountry(countryValue: any) {
