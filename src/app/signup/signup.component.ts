@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CCS } from '../ccs_service';
+import { UserRegFormServiceService } from "../user-reg-form-service.service";
 
-// import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 export interface sex {
   value: string;
@@ -27,10 +28,7 @@ export class SignupComponent implements OnInit {
 
   // const countries = of(this.countryInfo);
 
-  constructor(private country: CCS,) { }
-
-  ngOnInit(): void {
-    this.getCountries();
+  constructor(private country: CCS, private formDataService: UserRegFormServiceService, private router: Router) {
     this.userForm = new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
@@ -39,9 +37,15 @@ export class SignupComponent implements OnInit {
       mobile: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
+      landmark: new FormControl('', Validators.required),
       state: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
+      zipcode: new FormControl('', Validators.required)
     });
+  }
+
+  ngOnInit(): void {
+    this.getCountries();
   }
 
   getCountries() {
@@ -53,7 +57,7 @@ export class SignupComponent implements OnInit {
   onChangeCountry(countryValue: any) {
     this.stateInfo = this.countryInfo[countryValue].States;
     this.cityInfo = this.stateInfo[0].Cities;
-    console.log(this.cityInfo);
+    // console.log(this.cityInfo);
   }
 
   onChangeState(stateValue: any) {
@@ -63,6 +67,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     console.log(JSON.stringify(this.userForm.value));
+    if (this.userForm.valid) {
+      const formData = this.userForm.value;
+      this.formDataService.setFormData(formData);
+      this.router.navigate(['/user']);
+    }
   }
 }
 

@@ -46,6 +46,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { UserRegFormServiceService } from "./user-reg-form-service.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,9 +94,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatCardModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
   ],
-  providers: [CCS],
+  providers: [CCS, UserRegFormServiceService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

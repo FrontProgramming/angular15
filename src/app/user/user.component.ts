@@ -1,18 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserRegFormServiceService } from "../user-reg-form-service.service";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
+  userForm: any;
 
-  @Input() receivedFormData: any;
+  constructor(private formDataService: UserRegFormServiceService) { }
 
-  constructor( ) { }
-
-  receiveFormData(formData: any): void {
-    this.receivedFormData = formData;
-    console.log(this.receivedFormData)
+  ngOnInit() {
+    this.formDataService.formData$.subscribe(formData => {
+      this.userForm = formData;
+    });
   }
 }

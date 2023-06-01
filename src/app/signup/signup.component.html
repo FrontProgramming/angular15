@@ -20,32 +20,36 @@
                 formControlName="lastname" id="lastname" placeholder="Doe" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
+
             <div class="col-md-4 col-sm-12">
               <div class="form-group">
                 <label class="form-label">Gender</label><span class="text-danger"><sup>*</sup></span>
-                <select class="form-select form-select-sm" required>
+                <select class="form-select form-select-sm" formControlName="gender" required>
                   <option value="Select your gender">--Choose your gender--</option>
                   <option *ngFor="let sex of gender" [value]="sex.value">{{sex.value}}</option>
                 </select>
               </div>
             </div>
+
             <div class="col-md-4 col-sm-12">
               <label for="email" class="form-label">Email</label><span class="text-danger"><sup>*</sup></span>
               <input type="text" class="form-control form-control-sm rounded-0" name="email" formControlName="email"
                 id="email" placeholder="email@example.com" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
+
             <div class="col-md-4 col-sm-12">
               <label for="mobile" class="form-label">Mobile</label><span class="text-danger"><sup>*</sup></span>
               <input type="number" class="form-control form-control-sm rounded-0" name="mobile" id="mobile"
-                placeholder="987-234-0987" maxlength="10" required>
+                placeholder="987-234-0987" maxlength="10" formControlName="mobile" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
+
             <div class="col-sm-6">
               <label for="inputPassword" class="form-label">Password</label><span
                 class="text-danger"><sup>*</sup></span>
               <input type="password" class="form-control form-control-sm rounded-0" name="password" id="inputPassword"
-                placeholder="**********" required>
+                placeholder="**********" formControlName="password" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
 
@@ -55,25 +59,25 @@
               <span class="text-danger fw-lighter errorText"></span>
             </div>
 
-            <div class="col-md-6 col-sm-12">
+            <!-- <div class="col-md-6 col-sm-12">
               <label for="address" class="form-label">Address</label><span class="text-danger"><sup>*</sup></span>
               <input type="text" class="form-control form-control-sm rounded-0" name="address" id="address"
-                placeholder="1600 Amphitheatre Parkway Mountain" required>
+                placeholder="1600 Amphitheatre Parkway Mountain" formControlName="address" required>
               <span class="text-danger fw-lighter errorText"></span>
-            </div>
+            </div> -->
 
             <div class="col-md-6 col-sm-12">
               <label for="landmark" class="form-label">Landmark</label><span class="text-danger"><sup>*</sup></span>
-              <input type="text" class="form-control form-control-sm rounded-0" name="landmark" id="landmark"
-                placeholder="Ex: Beside Park Hotel" required>
+              <input type="text" class="form-control form-control-sm rounded-0" formControlName="landmark"
+                name="landmark" id="landmark" placeholder="Ex: Beside Park Hotel" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
 
             <div class="col-md-4 col-sm-12">
               <div class="form-group">
                 <label class="form-label">Country</label><span class="text-danger"><sup>*</sup></span>
-                <select (change)="onChangeCountry($any($event.target).value)" class="form-select form-select-sm"
-                  required>
+                <select (change)="onChangeCountry($any($event.target).value)" formControlName="country"
+                  class="form-select form-select-sm" required>
                   <option>-- Select Country --</option>
                   <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country["CountryName"]}}
                   </option>
@@ -83,7 +87,8 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-group">
                 <label class="form-label">State</label><span class="text-danger"><sup>*</sup></span>
-                <select (change)="onChangeState($any($event.target).value)" class="form-select form-select-sm" required>
+                <select (change)="onChangeState($any($event.target).value)" formControlName="state"
+                  class="form-select form-select-sm" required>
                   <option *ngIf="stateInfo == ''" value="-1">-- Select State --</option>
                   <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state["StateName"]}}</option>
                 </select>
@@ -92,7 +97,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-group">
                 <label class="form-label">City</label><span class="text-danger"><sup>*</sup></span>
-                <select class="form-select form-select-sm" required>
+                <select class="form-select form-select-sm" formControlName="city" required>
                   <option *ngIf="cityInfo == ''" value="-1">-- Select City --</option>
                   <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
                 </select>
@@ -100,7 +105,8 @@
             </div>
             <div class="col-md-4 col-sm-12">
               <label class="form-label">Pincode</label><span class="text-danger"><sup>*</sup></span>
-              <input type="text" class="form-control form-control-sm rounded-0 " placeholder="123-456" required>
+              <input type="text" class="form-control form-control-sm rounded-0" formControlName="zipcode"
+                placeholder="123-456" required>
               <span class="text-danger fw-lighter errorText"></span>
             </div>
           </div>
@@ -108,10 +114,11 @@
         <div class="card-footer bg-transparent">
           <div class="d-grid gap-2 d-flex justify-content-center">
             <button class="btn btn-sm btn-outline-dark col-md-3 rounded-4" type="reset">Reset</button>
-            <button [disabled]="!userForm.valid" class="btn btn-sm btn-outline-primary me-md-2 col-md-3 rounded-4"
+            <!-- <button [disabled]="!userForm.valid" class="btn btn-sm btn-outline-primary me-md-2 col-md-3 rounded-4"
               type="submit">
               Submit
-            </button>
+            </button> -->
+            <button class="btn btn-sm btn-outline-primary me-md-2 col-md-3 rounded-4" type="submit">Submit</button>
           </div>
         </div>
       </div>
