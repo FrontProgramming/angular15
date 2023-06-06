@@ -14,6 +14,7 @@ import { MatLoginComponent } from './material-forms/mat-login/mat-login.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
+import { SearchComponent } from './search/search.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/pagenotfound', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'pagination', component: PaginationComponent },
   { path: 'child', component: ChildComponent },
   { path: 'parent', component: ParentComponent },
+  { path: 'search', component: SearchComponent },
   { path: '**', component: HomeComponent },
 ];
 

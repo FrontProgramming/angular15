@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CCS } from '../ccs_service';
 import { UserRegFormServiceService } from "../user-reg-form-service.service";
 
-import {ActivatedRoute, Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 export interface sex {
   value: string;

@@ -47,6 +47,8 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UserRegFormServiceService } from "./user-reg-form-service.service";
+import { SearchComponent } from './search/search.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +70,7 @@ import { UserRegFormServiceService } from "./user-reg-form-service.service";
     ParentComponent,
     ChildComponent,
     ForgotPasswordComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { UserRegFormServiceService } from "./user-reg-form-service.service";
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
+    Ng2SearchPipeModule
   ],
   providers: [CCS, UserRegFormServiceService],
   bootstrap: [AppComponent],

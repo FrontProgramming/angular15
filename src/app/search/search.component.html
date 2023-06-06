@@ -1,0 +1,29 @@
+<div class="container mt-3">
+ <div class="col-md-6 offset-md-3">
+  <div class="input-group mb-3">
+   <button class="btn btn-dark rounded-0" id="seaButton">Search</button>
+   <input type="search" name="search" id="search" class="form-control form-control-sm rounded-0"
+    [(ngModel)]="filterTerm" placeholder="Search here">
+  </div>
+  <div class="table-responsive">
+   <div class="table col-sm-12">
+    <thead>
+     <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Address</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let item of filterData | filter:filterTerm">
+      <td>{{item.id}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.address}}</td>
+     </tr>
+    </tbody>
+   </div>
+  </div>
+ </div>
+</div>
