@@ -1,12 +1,13 @@
 <div class="container mt-3">
  <div class="col-md-6 offset-md-3">
-  <div class="input-group mb-3">
-   <button class="btn btn-dark rounded-0" id="seaButton">Search</button>
+  <div class="mb-3">
+   <!-- <button class="btn btn-dark rounded-0" id="seaButton">Search</button> -->
+   <label for="search" class="form-label">Search</label>
    <input type="search" name="search" id="search" class="form-control form-control-sm rounded-0"
     [(ngModel)]="filterTerm" placeholder="Search here">
   </div>
   <div class="table-responsive">
-   <div class="table col-sm-12">
+   <table class="table table-striped col-sm-12">
     <thead>
      <tr>
       <th scope="col">#</th>
@@ -23,7 +24,7 @@
       <td>{{item.address}}</td>
      </tr>
     </tbody>
-   </div>
+   </table>
   </div>
  </div>
 </div>
