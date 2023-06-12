@@ -3,7 +3,7 @@
         <table class="table table-bordered border-primary mt-2 mb-2">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
+                    <!-- <th scope="col">#</th> -->
                     <th scope="col">Firstname</th>
                     <th scope="col">Lastname</th>
                     <th scope="col">Gender</th>
@@ -18,19 +18,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row" class="text-center">1</td>
-                    <!-- <td class="text-center">{{firstname}}</td>
-                    <td class="text-center">{{lastname}}</td>
-                    <td class="text-center">{{gender}}</td>
-                    <td class="text-center">{{email}}</td>
-                    <td class="text-center">{{mobile}}</td>
-                    <td class="text-center">{{address}}</td>
-                    <td class="text-center">{{landmark}}</td>
-                    <td class="text-center">{{country}}</td>
-                    <td class="text-center">{{state}}</td>
-                    <td class="text-center">{{city}}</td>
-                    <td class="text-center">{{zipcode}}</td> -->
+                <tr *ngIf="receivedFormData">
+                    <!-- <td scope="row" class="text-center"></td> -->
+                    <td class="text-center">{{ receivedFormData.firstName }}</td>
+                    <td class="text-center">{{ receivedFormData.lastname }}</td>
+                    <td class="text-center">{{ receivedFormData.email }}</td>
+                    <td class="text-center">{{ receivedFormData.sex }}</td>
+                    <td class="text-center">{{ receivedFormData.mobile }}</td>
+                    <td class="text-center">{{ receivedFormData.userAddress }}</td>
+                    <td class="text-center">{{ receivedFormData.userLandmark }}</td>
+                    <td class="text-center">{{ receivedFormData.userCountry }}</td>
+                    <td class="text-center">{{ receivedFormData.userState }}</td>
+                    <td class="text-center">{{ receivedFormData.userCity }}</td>
+                    <td class="text-center">{{ receivedFormData.userZipcode }}</td>
                 </tr>
             </tbody>
         </table>

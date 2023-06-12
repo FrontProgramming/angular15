@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegFormServiceService {
-  private formDataSubject = new BehaviorSubject<any>(null);
-  formData$ = this.formDataSubject.asObservable();
+  private dataSubject = new Subject<any>();
+  formData$ = this.dataSubject.asObservable();
 
-  setFormData(formData: any) {
-    this.formDataSubject.next(formData);
+  sendFormData(formData: any) {
+    this.dataSubject.next(formData);
   }
 }

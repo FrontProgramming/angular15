@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserRegFormServiceService } from "../user-reg-form-service.service";
+import { UserRegFormServiceService } from "../user-reg-form-service.service";
 
 @Component({
   selector: 'app-user',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+  receivedFormData: any;
+  constructor( private formDataService: UserRegFormServiceService ) { }
 
   ngOnInit() {
+    this.formDataService.formData$.subscribe(formData => {
+      this.receivedFormData = formData;
+    });
   }
 }

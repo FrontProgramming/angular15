@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { CCS } from '../ccs_service';
 import { UserRegFormServiceService } from "../user-reg-form-service.service";
 
@@ -16,6 +16,22 @@ export interface sex {
 })
 
 export class SignupComponent implements OnInit {
+  constructor( private country: CCS, private formDataService: UserRegFormServiceService, private fb: FormBuilder,) {
+    this.userForm = this.fb.group({
+      firstname: [''],
+      lastname: [''],
+      email: [''],
+      sex: [''],
+      mobile: [''],
+      userAddress: [''],
+      userLandmark: [''],
+      userCountry: [''],
+      userState: [''],
+      userCity: [''],
+      userZipcode: ['']
+    });
+  }
+
   title = "Registration Form";
   userForm!: FormGroup;
   stateInfo: any = [];
@@ -25,24 +41,6 @@ export class SignupComponent implements OnInit {
     { value: 'Male', viewValue: 'Male' },
     { value: 'Female', viewValue: 'Female' }
   ];
-
-  // const countries = of(this.countryInfo);
-
-  constructor(private country: CCS, private formDataService: UserRegFormServiceService, private router: Router) {
-    this.userForm = new FormGroup({
-      firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      gender: new FormControl('', Validators.required),
-      mobile: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      country: new FormControl('', Validators.required),
-      landmark: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
-      zipcode: new FormControl('', Validators.required)
-    });
-  }
 
   ngOnInit(): void {
     this.getCountries();
@@ -65,12 +63,11 @@ export class SignupComponent implements OnInit {
     //console.log(this.cityInfo);
   }
 
-  onSubmit(): void {
+  submitForm(): void {
     console.log(JSON.stringify(this.userForm.value));
     if (this.userForm.valid) {
       const formData = this.userForm.value;
-      this.formDataService.setFormData(formData);
-      this.router.navigate(['/user']);
+      this.formDataService.sendFormData(formData);
     }
   }
 }
