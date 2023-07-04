@@ -49,6 +49,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { UserRegFormServiceService } from "./user-reg-form-service.service";
 import { SearchComponent } from './search/search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FooterComponent } from './footer/footer.component';
+import { FooterTwoComponent } from './footer-two/footer-two.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +73,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ChildComponent,
     ForgotPasswordComponent,
     SearchComponent,
+    FooterComponent,
+    FooterTwoComponent,
   ],
   imports: [
     BrowserModule,

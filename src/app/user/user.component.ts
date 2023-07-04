@@ -11,8 +11,8 @@ export class UserComponent implements OnInit {
   constructor( private formDataService: UserRegFormServiceService ) { }
 
   ngOnInit() {
-    this.formDataService.formData$.subscribe(formData => {
-      this.receivedFormData = formData;
-    });
+    // this.formDataService.formData$.subscribe(formData => {
+    //   this.receivedFormData = formData;
+    // });
   }
 }

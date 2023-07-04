@@ -1,13 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CCS } from '../ccs_service';
-import { UserRegFormServiceService } from "../user-reg-form-service.service";
-
-import { Router } from '@angular/router';
-
-export interface sex {
-  value: string;
-}
 
 @Component({
   selector: 'app-signup',
@@ -16,21 +9,7 @@ export interface sex {
 })
 
 export class SignupComponent implements OnInit {
-  constructor( private country: CCS, private formDataService: UserRegFormServiceService, private fb: FormBuilder,) {
-    this.userForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      email: [''],
-      sex: [''],
-      mobile: [''],
-      userAddress: [''],
-      userLandmark: [''],
-      userCountry: [''],
-      userState: [''],
-      userCity: [''],
-      userZipcode: ['']
-    });
-  }
+  @Output() event = new EventEmitter<any>();
 
   title = "Registration Form";
   userForm!: FormGroup;
@@ -41,34 +20,54 @@ export class SignupComponent implements OnInit {
     { value: 'Male', viewValue: 'Male' },
     { value: 'Female', viewValue: 'Female' }
   ];
+  
+  submitted: any;
+
+  constructor( private fb: FormBuilder, private country: CCS) {
+    this.userForm = this.fb.group({
+      firstname: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      sex: new FormControl('null', Validators.required),
+      mobile: new FormControl('', Validators.required),
+      userAddress: new FormControl('', Validators.required),
+      userLandmark: new FormControl('', Validators.required),
+      userCountry: new FormControl('null', Validators.required),
+      userState: new FormControl('', Validators.required),
+      userCity: new FormControl('', Validators.required),
+      userZipcode: new FormControl('', [Validators.required])
+    });
+  }
+  // Firstname: any;
 
   ngOnInit(): void {
     this.getCountries();
   }
 
-  getCountries() {
-    this.country.allCountries().subscribe((data2: { Countries: any; }) => {
-      this.countryInfo = data2.Countries;
-    }, (err: any) => console.log(err), () => console.log('complete'))
+  getCountries(){
+    this.country.allCountries().
+    subscribe(
+      data2 => {
+        this.countryInfo=data2.Countries;
+      },
+      err => console.log(err),
+      () => console.log('complete')
+    )
   }
 
   onChangeCountry(countryValue: any) {
     this.stateInfo = this.countryInfo[countryValue].States;
     this.cityInfo = this.stateInfo[0].Cities;
-    // console.log(this.cityInfo);
   }
 
   onChangeState(stateValue: any) {
     this.cityInfo = this.stateInfo[stateValue].Cities;
-    //console.log(this.cityInfo);
   }
 
-  submitForm(): void {
-    console.log(JSON.stringify(this.userForm.value));
-    if (this.userForm.valid) {
-      const formData = this.userForm.value;
-      this.formDataService.sendFormData(formData);
-    }
+  submitForm(): void{
+    console.warn(this.userForm.value);
+    this.userForm.reset();
   }
+
 }
 

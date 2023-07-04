@@ -2,5 +2,8 @@
     "editor.fontFamily": "Anonymous pro",
     "editor.wordWrap": "on",
     "editor.tabSize": 1,
-    "editor.autoClosingBrackets": "always"
+    "editor.autoClosingBrackets": "always",
+    "terminal.integrated.confirmOnExit": "always",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.enableBell": true
 }
