@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
   @Output() event = new EventEmitter<any>();
 
   title = "Registration Form";
+  userInfoTitle = `Hi your ${this.title} details are filled below`;
   userForm!: FormGroup;
   stateInfo: any = [];
   countryInfo: any = [];
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit {
       userZipcode: new FormControl('', [Validators.required])
     });
   }
+
   // Firstname: any;
 
   ngOnInit(): void {

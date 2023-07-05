@@ -1,9 +1,9 @@
 <div class="container">
     <div class="table-responsive">
-        <table class="table table-bordered border-primary mt-2 mb-2">
+        <table class="table table-bordered mt-2 mb-2">
             <thead>
-                <tr class="text-center">
-                    <!-- <th scope="col">#</th> -->
+                <tr class="text-center fw-light">
+                    <th scope="col">#ID</th>
                     <th scope="col">Firstname</th>
                     <th scope="col">Lastname</th>
                     <th scope="col">Gender</th>
@@ -18,19 +18,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngIf="receivedFormData">
-                    <!-- <td scope="row" class="text-center"></td> -->
-                    <td class="text-center">{{ receivedFormData.firstName }}</td>
-                    <td class="text-center">{{ receivedFormData.lastname }}</td>
-                    <td class="text-center">{{ receivedFormData.email }}</td>
-                    <td class="text-center">{{ receivedFormData.sex }}</td>
-                    <td class="text-center">{{ receivedFormData.mobile }}</td>
-                    <td class="text-center">{{ receivedFormData.userAddress }}</td>
-                    <td class="text-center">{{ receivedFormData.userLandmark }}</td>
-                    <td class="text-center">{{ receivedFormData.userCountry }}</td>
-                    <td class="text-center">{{ receivedFormData.userState }}</td>
-                    <td class="text-center">{{ receivedFormData.userCity }}</td>
-                    <td class="text-center">{{ receivedFormData.userZipcode }}</td>
+                <tr *ngFor = "let user of usersData; let i = index;">
+                    <td class="text-center fw-light" id="{{i+1}}">User {{i+1}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
+                    <td class="text-center fw-light">{{user}}</td>
                 </tr>
             </tbody>
         </table>

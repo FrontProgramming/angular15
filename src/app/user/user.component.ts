@@ -9,6 +9,8 @@ import { UserRegFormServiceService } from "../user-reg-form-service.service";
 export class UserComponent implements OnInit {
   receivedFormData: any;
   constructor( private formDataService: UserRegFormServiceService ) { }
+  
+  usersData = ["Data", "Data", "Data", "Data", "Data", "Data", "Data", "Data", "Data"];
 
   ngOnInit() {
     // this.formDataService.formData$.subscribe(formData => {
